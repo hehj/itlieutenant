@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itelephant.h5wap.dao.ArticleMapper">
+	<resultMap id="BaseResultMap" type="com.itelephant.h5wap.entity.Article">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="post_author" property="postAuthor" jdbcType="BIGINT" />
+		<result column="post_keywords" property="postKeywords" jdbcType="VARCHAR" />
+		<result column="post_title" property="postTitle" jdbcType="VARCHAR" />
+		<result column="post_content" property="postContent" jdbcType="VARCHAR" />
+		<result column="post_excerpt" property="postExcerpt" jdbcType="VARCHAR" />
+		<result column="post_source" property="postSource" jdbcType="VARCHAR" />
+		<result column="post_date" property="postDate" jdbcType="VARCHAR"/> 
+		<result column="post_hits" property="postHits" jdbcType="BIGINT" />
+		<result column="post_like" property="postLike" jdbcType="BIGINT" />
+	</resultMap>
+	
+	<select id="whichOneByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select a.* from sp_posts a where a.id = #{id,jdbcType=BIGINT}
+	</select>
+	
+	<select id="listMore" resultMap="BaseResultMap">
+		select a.id,a.post_title from sp_posts a where 
+			a.post_title like CONCAT('%',#{query,jdbcType=VARCHAR} , '%') OR 
+			a.post_keywords like CONCAT('%',#{query,jdbcType=VARCHAR} , '%') 
+		<!-- <foreach item="item" index="index" collection="list" open="(" separator=" " close=")">  
+		  #{query}  
+		</foreach>  -->
+		and a.id != #{id,jdbcType=BIGINT}
+		order by post_hits desc limit 0,10
+	</select>
+	
+	<select id="listByQuery" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select a.id,a.post_title,a.post_excerpt,a.post_keywords 
+			from sp_posts a 
+			where 
+				a.post_title like CONCAT('%',#{q,jdbcType=VARCHAR} , '%') OR 
+				a.post_keywords like CONCAT('%',#{q,jdbcType=VARCHAR} , '%') 
+			order by #{orderColumn,jdbcType=VARCHAR} desc limit #{x,jdbcType=BIGINT},#{y,jdbcType=BIGINT}
+	</select>
+	
+	<select id="listBylast" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select a.id,a.post_title,a.post_date,a.post_keywords 
+			from sp_posts a 
+			order by post_date desc limit 0,#{n,jdbcType=BIGINT}
+	</select>
+	
+	<select id="countNew" resultType="int"
+		parameterType="java.lang.String">
+		select count(id) 
+		from sp_posts where post_date > #{d,jdbcType=VARCHAR} 
+	</select>
+	
+	<update id="updateByPrimaryKey" parameterType="com.itelephant.h5wap.entity.Article">
+		update sp_posts
+		<set>
+			<if test="postHits != null">
+				post_hits = #{postHits,jdbcType=BIGINT},
+			</if>
+			<if test="postLike != null">
+				post_like = #{postLike,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+</mapper>

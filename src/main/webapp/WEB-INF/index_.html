@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<title>IT LIEUTENANT - 互联网中尉</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="/static/css/default.css">
+	<meta name="baidu-site-verification" content="uQy30E1vqp" />
+	<meta name="keywords" content="互联网中尉 微信订阅号 电子商务">
+	<meta name="description" content="互联网中尉 微信订阅号 互联网时代的「电商架构者」">
+</head>
+<body>
+    <div class="htmleaf-container">
+        <div class="related">
+        	<div class = "nav span4">
+        		<ul style="margin-left:2rem;margin-top:-3rem">
+        			<li class="active"><a href="/">首页</a></li>
+			  		<li><a href="/list">阅读</a></li>
+			  		<li><a href="/about">关于</a></li>
+        		</ul>
+        		<img alt="花开花落，缘起缘灭，扫描立即关注互联网中尉" src="/oct/images/qrcode_for_gh_e98747611184_258.jpg" class="img-thumbnail center-block" style="margin-top:50px">
+        	</div>
+        	
+        	 <h3>最近更新:</h3>
+              <div class="span4">
+                  <ul>
+                  	<#list leftLast as which>
+                    <li><a href="/article/${which.id}">${which.postTitle}</a></li>
+					</#list>
+                  </ul>
+              </div>
+              <div class="span4">
+                  <ul>
+                    <#list rightLast as which>
+                    <li><a href="/article/${which.id}">${which.postTitle}</a></li>
+					</#list>
+                  </ul>
+              </div>
+            <h3>如果你拥有一个订阅号，<br>那么你可能会喜欢:</h3>
+              <div class="span4">
+                  <a href="/list?q=微信"><img src="/static/related/679060.jpg"/></a>
+                  <ul>
+                  	<#list leftOne as which>
+                    <li><a href="/article/${which.id}">${which.postTitle}</a></li>
+					</#list>
+                  </ul>
+              </div>
+              <div class="span4">
+                  <a href="/list?q=微信"><img src="/static/related/429086.jpg"/></a>
+                  <ul>
+                    <#list rightOne as which>
+                    <li><a href="/article/${which.id}">${which.postTitle}</a></li>
+					</#list>
+                  </ul>
+              </div>
+            <h3>如果你是一名微商，<br>那么你可能会喜欢:</h3>
+            <div class="span4">
+                  <a href="/list?q=电商"><img src="/static/related/302790.jpg"/></a>
+                  <ul>
+                  	<#list leftTwo as which>
+                    <li><a href="/article/${which.id}">${which.postTitle}</a></li>
+					</#list>
+                  </ul>
+              </div>
+              <div class="span4">
+                  <a href="/list?q=电商"><img src="/static/related/500567.jpg"/></a>
+                  <ul>
+                    <#list rightTwo as which>
+                    <li><a href="/article/${which.id}">${which.postTitle}</a></li>
+					</#list>
+                  </ul>
+              </div>
+              <!--  
+              <div class="nd2">
+                  <h3>20151004期</h3>
+                  <div class="span4">
+                      <img src="/h5wap/bluestar/related/2af11d.jpg" width="300" alt="jQuery可互动的粒子动画特效插件"/>
+                      <ul>
+                        <li><a href="#">微信公众号为什么非做不可?</a></li>
+                        <li><a href="#">连接一切：自媒体的未来是什么？</a></li>
+                        <li><a href="#">微信网页授权获取用户基本信息</a></li>
+                      </ul>
+                  </div>
+                  <div class="span4">
+                      <img src="/h5wap/bluestar/related/2af11d.jpg" width="300" alt="jQuery可互动的粒子动画特效插件"/>
+                      <ul>
+                        <li><a href="#">微信公众号为什么非做不可？</a></li>
+                        <li><a href="#">连接一切：自媒体的未来是什么？</a></li>
+                        <li><a href="#">微信网页授权获取用户基本信息</a></li>
+                      </ul>
+                  </div>
+                  <h3>20150927期</h3>
+                  <div class="span4">
+                      <img src="/h5wap/bluestar/related/2af11d.jpg" width="300" alt="jQuery可互动的粒子动画特效插件"/>
+                      <ul>
+                        <li><a href="#">微信公众号为什么非做不可?</a></li>
+                        <li><a href="#">连接一切：自媒体的未来是什么？</a></li>
+                        <li><a href="#">微信网页授权获取用户基本信息</a></li>
+                      </ul>
+                  </div>
+                  <div class="span4">
+                      <img src="/h5wap/bluestar/related/2af11d.jpg" width="300" alt="jQuery可互动的粒子动画特效插件"/>
+                      <ul>
+                        <li><a href="#">微信公众号为什么非做不可？</a></li>
+                        <li><a href="#">连接一切：自媒体的未来是什么？</a></li>
+                        <li><a href="#">微信网页授权获取用户基本信息</a></li>
+                      </ul>
+                  </div>
+               </div>
+               -->
+              <div class="footer">
+                <p>©CopyRight 2015 ITLIEUTENANT.COM All Rights Reserved. IT LIEUTENANT 版权所有</p>
+                <span>闽ICP备15018616-2</span>
+		<br>
+		<script src="http://s4.cnzz.com/z_stat.php?id=1256684016&web_id=1256684016" language="JavaScript"></script>
+             &nbsp; ${site} </div>
+        </div>
+
+        
+    </div>
+
+    <section class="canvas-wrap">
+        <div class="canvas-content">
+            <a href="#" class="logo"></a>
+            <h1>IT LIEUTENANT</h1>
+            <p class="text-center">
+             	互联网时代的「电商架构者」
+            </p>
+
+        </div>
+        <div id="canvas" class="gradient"></div>
+    </section>
+    
+	
+	<!-- Main library -->
+    <script src="/static/js/three.min.js"></script>
+    <!-- Helpers -->
+    <script src="/static/js/projector.js"></script>
+    <script src="/static/js/canvas-renderer.js"></script>
+    <!-- Visualitzation adjustments -->
+    <script src="/static/js/3d-lines-animation.js"></script>
+	<script>window.jQuery || document.write('<script src="/static/js/jquery-2.1.1.min.js"><\/script>')</script>
+	<script src="/static/js/color.js"></script>
+</body>
+</html>

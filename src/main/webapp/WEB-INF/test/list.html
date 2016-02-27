@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery load方法 演示</title>
+<style type="text/css">
+ body{
+  font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif; 
+  font-size:12px;
+ }
+</style>
+</head>
+  
+<body>
+
+<ul style="float:left">
+	<li><a href="#">Go to select</a></li>
+</ul>
+<br/>
+<script type="text/javascript" src="/script/jquery-2.1.1.min.js"></script> 
+<script>
+$("a").click(function(){
+	  $("span").html("loading...");	
+	  $("div").load('/test/detail',{},function(response, status,  XMLHttpRequest){
+		  $("span").html("load success");		  
+	  });
+});
+</script>
+
+</body>
+</html>

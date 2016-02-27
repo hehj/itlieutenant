@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+
+	<!-- Spring applicationContext -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+
+	<!-- log4j 日志 -->
+	<context-param>
+		<param-name>log4jConfiguration</param-name>
+		<param-value>classpath:log4j.xml</param-value>
+	</context-param>
+
+	<!-- encoding Filter -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- String listenter -->
+	<listener>
+		<description>spring listener</description>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- Spring MVC -->
+	<servlet>
+		<description>spring mvc servlet</description>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<description>springmvc config</description>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<!-- 二维码 Servlet -->
+	<servlet>
+		<servlet-name>qrCode</servlet-name>
+		<servlet-class>com.itelephant.h5wap.action.BarCode2DServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>qrCode</servlet-name>
+		<url-pattern>/qrCode</url-pattern>
+	</servlet-mapping>
+
+	<!-- FITER -->
+	<filter>
+		<filter-name>weixinFilter</filter-name>
+		<filter-class>com.itelephant.h5wap.action.WeixinFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>weixinFilter</filter-name>
+		<url-pattern>/article/*</url-pattern>
+	</filter-mapping>
+</web-app>

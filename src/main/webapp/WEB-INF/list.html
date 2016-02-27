@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>IT LIEUTENANT - 互联网中尉 - 互联网时代的「电商架构者」</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<meta name="keywords" content="Java Linux Html5 电商 微信 智能旅游 ">
+		<meta name="description" content="IT LIEUTENANT - 互联网中尉 - 互联网时代的「电商架构者」 何航杰的个人网站">
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">IT LIEUTENANT</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="/">主页</a></li>
+											<li><a href="/list">文章</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>「IT LIEUTENANT」</h2>
+							<h3>互联网中尉的文章列表</h3>
+							<span>关于中尉，他是在萨拉米耶挑战了阿契美尼德王朝的希腊海军，他是在高加米拉冲击大流士三世宠大军团的马其顿伙友骑兵，</span>
+							<span>他是在阿斯卡特悲伤之夜后重新投入战斗的卡斯蒂利亚火枪手，他是在勒班陀击败奥斯曼土耳其帝国的基督教炮手，他是在</span>
+							<span>中途岛击败日本帝国的海军飞行员。他就是自由、独立、理性、勇敢的人类基因形象。是我要成为的人。</span>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+								<#list list as which>
+								<h4>${which.postTitle?replace(key,'<span class="bg-primary">'+key+'</span>')}</h4>
+								<p><a href="/article/${which.id}">${which.postExcerpt}</a></p>
+								<ul class="actions small">
+									<li><#list which.postKeywords?split(' ') as x><a href="/list?q=${x}"> ${x?replace(key,'<span class="bg-primary">'+key+'</span>')}/&nbsp;</a> </#list></li>
+								</ul>
+								<hr />
+								</#list>
+							</div>
+						</section>
+					</article>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy;CopyRight 2015－2016 ITLIEUTENANT.COM All Rights Reserved. </li>
+						<li>闽ICP备15018616-2</li><li><script src="http://s4.cnzz.com/z_stat.php?id=1256684016&web_id=1256684016" language="JavaScript"></script>&nbsp;${site}</li>
+					</ul>
+				</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
