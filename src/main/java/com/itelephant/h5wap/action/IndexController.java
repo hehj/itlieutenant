@@ -22,12 +22,12 @@ public class IndexController {
 	@RequestMapping("/")
 	public String index(Model model){
 		
-		List<Article> javaResult = articleService.listByQuery("java",1,5,"post_date").getResultList();
-		List<Article> linuxResult = articleService.listByQuery("linux",1,5,"post_date").getResultList();
-		List<Article> htmlResult = articleService.listByQuery("html",1,5,"post_date").getResultList();
-		List<Article> dsResult = articleService.listByQuery("µÁ…Ã",1,5,"post_date").getResultList();
-		List<Article> wxResult = articleService.listByQuery("Œ¢–≈",1,5,"post_date").getResultList();
-		List<Article> beaconResult = articleService.listByQuery("ibeacon",1,5,"post_date").getResultList();
+		List<Article> javaResult = articleService.listByQuery("java",1,5).getResultList();
+		List<Article> linuxResult = articleService.listByQuery("linux",1,5).getResultList();
+		List<Article> htmlResult = articleService.listByQuery("html",1,5).getResultList();
+		List<Article> dsResult = articleService.listByQuery("business",1,5).getResultList();
+		List<Article> wxResult = articleService.listByQuery("weixin",1,5).getResultList();
+		List<Article> beaconResult = articleService.listByQuery("ibeacon",1,5).getResultList();
 		
 		model.addAttribute("javaResult", javaResult);
 		model.addAttribute("linuxResult", linuxResult);

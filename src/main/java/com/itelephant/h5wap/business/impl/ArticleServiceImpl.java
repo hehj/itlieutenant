@@ -40,7 +40,7 @@ public class ArticleServiceImpl implements ArticleService {
 		return page;
 	}
 	
-	public Page<Article> listByQuery(String query, Integer n, Integer offSet, String orderColumn) {
+	public Page<Article> listByQuery(String query, Integer n, Integer offSet) {
 		
 		int x = (n-1)*offSet,y = offSet;
 		
@@ -49,7 +49,6 @@ public class ArticleServiceImpl implements ArticleService {
 		args.put("q", query.trim());
 		args.put("x", x);
 		args.put("y", y);
-		args.put("orderColumn", orderColumn);
 		page.setResultList(articleDao.listByQuery(args));
 		return page;
 	}
@@ -58,6 +57,14 @@ public class ArticleServiceImpl implements ArticleService {
 		Page<Article> page = new Page<Article>();
 		page.setResultList(articleDao.listBylast(n));
 		return page;
+	}
+
+	public void merge(Article article) {
+		if(article.getId()!=null){
+			articleDao.update(article);
+		}else{
+			articleDao.insert(article);			
+		}
 	}
 
 }

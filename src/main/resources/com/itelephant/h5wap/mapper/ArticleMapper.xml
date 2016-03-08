@@ -37,7 +37,7 @@
 			where 
 				a.post_title like CONCAT('%',#{q,jdbcType=VARCHAR} , '%') OR 
 				a.post_keywords like CONCAT('%',#{q,jdbcType=VARCHAR} , '%') 
-			order by #{orderColumn,jdbcType=VARCHAR} desc limit #{x,jdbcType=BIGINT},#{y,jdbcType=BIGINT}
+			order by id desc limit #{x,jdbcType=BIGINT},#{y,jdbcType=BIGINT}
 	</select>
 	
 	<select id="listBylast" resultMap="BaseResultMap"
@@ -64,5 +64,36 @@
 			</if>
 		</set>
 		where id = #{id,jdbcType=BIGINT}
+	</update>
+	
+	<update id="update" parameterType="com.itelephant.h5wap.entity.Article">
+		update sp_posts
+		<set>
+			<if test="postTitle != null">
+				post_title = #{postTitle,jdbcType=VARCHAR},
+			</if>
+			<if test="postContent != null">
+				post_content = #{postContent,jdbcType=VARCHAR},
+			</if>
+			<if test="postExcerpt != null">
+				post_excerpt = #{postExcerpt,jdbcType=VARCHAR},
+			</if>
+			<if test="postSource != null">
+				post_source = #{postSource,jdbcType=VARCHAR},
+			</if>
+			<if test="postKeywords != null">
+				post_keywords = #{postKeywords,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	
+	<update id="insert" parameterType="com.itelephant.h5wap.entity.Article">
+		<![CDATA[
+         insert into 
+         	sp_posts(post_title,post_content,post_source,post_keywords,post_excerpt) 
+         values 
+         	(#{postTitle,jdbcType=VARCHAR},#{postContent,jdbcType=VARCHAR},#{postSource,jdbcType=VARCHAR},#{postKeywords,jdbcType=VARCHAR}),#{postExcerpt,jdbcType=VARCHAR})
+     	]]>
 	</update>
 </mapper>

@@ -21,7 +21,7 @@ public interface ArticleService {
 	 * @param query
 	 * @return
 	 */
-	public Page<Article> listByQuery(String query, Integer n, Integer offSet, String orderColumn);
+	public Page<Article> listByQuery(String query, Integer n, Integer offSet);
 	
 	/**
 	 * 点赞
@@ -35,4 +35,10 @@ public interface ArticleService {
 	 * @return
 	 */
 	public Page<Article> listBylast(Integer n); 
+	
+	/**
+	 * 新增后修改一篇文章
+	 * @param article
+	 */
+	public void merge(Article article);
 }

@@ -11,6 +11,7 @@ public class Article {
 	private Long postLike;
 	private String postDate;
 	private String postExcerpt;
+	private String saveCode;
 
 	public Long getId() {
 		return id;
@@ -90,6 +91,14 @@ public class Article {
 
 	public void setPostExcerpt(String postExcerpt) {
 		this.postExcerpt = postExcerpt;
+	}
+
+	public String getSaveCode() {
+		return saveCode;
+	}
+
+	public void setSaveCode(String saveCode) {
+		this.saveCode = saveCode;
 	}
 	
 	

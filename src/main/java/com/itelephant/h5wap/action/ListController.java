@@ -22,7 +22,7 @@ public class ListController {
 			if(null==key){
 				key = "";
 			}
-			Page<Article> page = articleService.listByQuery(key,1,20,"post_date");
+			Page<Article> page = articleService.listByQuery(key,1,50);
 			model.addAttribute("list", page.getResultList());
 			model.addAttribute("key",key);
 			return "/list";

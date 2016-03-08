@@ -44,4 +44,8 @@ public interface ArticleMapper {
 	 * @return
 	 */
 	List<Article> listBylast(Integer n);
+	
+	void insert(Article article);
+	
+	void update(Article article);
 }

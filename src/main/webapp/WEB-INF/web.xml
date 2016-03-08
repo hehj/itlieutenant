@@ -53,16 +53,6 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-	<!-- 二维码 Servlet -->
-	<servlet>
-		<servlet-name>qrCode</servlet-name>
-		<servlet-class>com.itelephant.h5wap.action.BarCode2DServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>qrCode</servlet-name>
-		<url-pattern>/qrCode</url-pattern>
-	</servlet-mapping>
-
 	<!-- FITER -->
 	<filter>
 		<filter-name>weixinFilter</filter-name>
@@ -72,4 +62,23 @@
 		<filter-name>weixinFilter</filter-name>
 		<url-pattern>/article/*</url-pattern>
 	</filter-mapping>
+
+	<!-- CKFinder -->
+	<servlet>
+		<servlet-name>ConnectorServlet</servlet-name>
+		<servlet-class>com.ckfinder.connector.ConnectorServlet</servlet-class>
+		<init-param>
+			<param-name>XMLConfig</param-name>
+			<param-value>/WEB-INF/ckfinder.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConnectorServlet</servlet-name>
+		<url-pattern>/ckfinder/core/connector/java/connector.java</url-pattern>
+	</servlet-mapping>
 </web-app>
