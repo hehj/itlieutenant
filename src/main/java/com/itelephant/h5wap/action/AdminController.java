@@ -49,7 +49,8 @@ public class AdminController {
 			result.put("massges", "Server reject");
 			return result;
 		}
-
+		
+	
 		articleService.merge(article);
 		result.put("status", "success");
 		result.put("massges", "success");

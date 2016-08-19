@@ -10,6 +10,7 @@ import com.itelephant.h5wap.business.ArticleService;
 import com.itelephant.h5wap.common.Page;
 import com.itelephant.h5wap.dao.ArticleMapper;
 import com.itelephant.h5wap.entity.Article;
+import com.itelephant.h5wap.utils.UtilDate;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
@@ -60,6 +61,7 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	public void merge(Article article) {
+		article.setPostModified(UtilDate.getDateFormatter());
 		if(article.getId()!=null){
 			articleDao.update(article);
 		}else{

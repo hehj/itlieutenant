@@ -10,6 +10,7 @@
 		<result column="post_excerpt" property="postExcerpt" jdbcType="VARCHAR" />
 		<result column="post_source" property="postSource" jdbcType="VARCHAR" />
 		<result column="post_date" property="postDate" jdbcType="VARCHAR"/> 
+		<result column="post_modified" property="postModified" jdbcType="VARCHAR"/> 
 		<result column="post_hits" property="postHits" jdbcType="BIGINT" />
 		<result column="post_like" property="postLike" jdbcType="BIGINT" />
 	</resultMap>
@@ -81,6 +82,10 @@
 			<if test="postSource != null">
 				post_source = #{postSource,jdbcType=VARCHAR},
 			</if>
+			<if test="post_modified != null">
+				post_modified = #{post_modified,jdbcType=VARCHAR},
+			</if>
+			
 			<if test="postKeywords != null">
 				post_keywords = #{postKeywords,jdbcType=VARCHAR},
 			</if>
@@ -91,9 +96,9 @@
 	<update id="insert" parameterType="com.itelephant.h5wap.entity.Article">
 		<![CDATA[
          insert into 
-         	sp_posts(post_title,post_content,post_source,post_keywords,post_excerpt) 
+         	sp_posts(post_title,post_content,post_source,post_keywords,post_excerpt,post_modified) 
          values 
-         	(#{postTitle,jdbcType=VARCHAR},#{postContent,jdbcType=VARCHAR},#{postSource,jdbcType=VARCHAR},#{postKeywords,jdbcType=VARCHAR}),#{postExcerpt,jdbcType=VARCHAR})
+         	(#{postTitle,jdbcType=VARCHAR},#{postContent,jdbcType=VARCHAR},#{postSource,jdbcType=VARCHAR},#{postKeywords,jdbcType=VARCHAR}),#{postExcerpt,jdbcType=VARCHAR},#{post_modified,jdbcType=VARCHAR})
      	]]>
 	</update>
 </mapper>

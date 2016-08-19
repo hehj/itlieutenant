@@ -12,6 +12,7 @@ public class Article {
 	private String postDate;
 	private String postExcerpt;
 	private String saveCode;
+	private String postModified;
 
 	public Long getId() {
 		return id;
@@ -100,7 +101,13 @@ public class Article {
 	public void setSaveCode(String saveCode) {
 		this.saveCode = saveCode;
 	}
-	
-	
 
+	public String getPostModified() {
+		return postModified;
+	}
+
+	public void setPostModified(String postModified) {
+		this.postModified = postModified;
+	}
+	
 }
