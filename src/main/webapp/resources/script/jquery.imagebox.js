@@ -146,7 +146,7 @@
 	
 							$(".imagebox").mouseleave(function() {
 								$(this).css("background", "#EFEFEF");
-								//$(this).find(".absmenu").hide();
+								$(this).find(".absmenu").hide();
 							});
 							
 							return rows;
