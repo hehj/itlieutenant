@@ -1,7 +1,6 @@
 package com.itelephant.h5wap.action;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.itelephant.h5wap.business.ArticleService;
+import com.itelephant.h5wap.common.Common;
 import com.itelephant.h5wap.common.Page;
 import com.itelephant.h5wap.entity.Article;
 
@@ -16,11 +16,6 @@ import com.itelephant.h5wap.entity.Article;
 public class ArticleController {
 		@Autowired
 		private ArticleService articleService;
-		@Value("#{configProperties['moreId']}")
-		private String moreId;
-
-		@Value("#{configProperties['site']}")
-		private String site;
 		
 		@RequestMapping("/article/ilikeit/{id}")
 		@ResponseBody
@@ -42,7 +37,7 @@ public class ArticleController {
 			model.addAttribute("like", article.getPostLike());
 			model.addAttribute("time", article.getPostDate().substring(0, 10));
 			
-			model.addAttribute("site", site);
+			model.addAttribute("site", Common.SITE);
 			
 			String[] keys = article.getPostKeywords().split(" ");
 			Page<Article> more = articleService.listMore(keys[0], id);

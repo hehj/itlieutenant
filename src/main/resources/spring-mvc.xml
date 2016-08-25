@@ -14,10 +14,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
 	<mvc:resources mapping="/assets/**" location="/resources/assets/" />
 	<mvc:resources mapping="/images/**" location="/resources/images/" />
 	<mvc:resources mapping="/script/**" location="/resources/script/" />
+	<mvc:resources mapping="/fancybox/**" location="/resources/fancybox/" />
 	<mvc:resources mapping="/oct/**" location="/resources/151031/" />
 	<mvc:resources mapping="/ckeditor/**" location="/resources/ckeditor/" />
 	<mvc:resources mapping="/ckfinder/**" location="/resources/ckfinder/" />
 	<mvc:resources mapping="/root.txt" location="/resources/text/" />
+	<mvc:resources mapping="/favicon.ico" location="/resources/favicon.ico" />
 	
 	<mvc:annotation-driven>
 		<mvc:message-converters>

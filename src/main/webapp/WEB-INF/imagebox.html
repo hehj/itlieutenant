@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>IT LIEUTENANT - 互联网中尉 - 互联网时代的「电商架构者」</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+		<!-- <link rel="stylesheet" href="/assets/css/main.css" /> -->
+		<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+		<script type="text/javascript" src="/script/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="/fancybox/jquery.fancybox.js"></script>
+		<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" />
+		<script type="text/javascript" src="/script/jquery.imagebox.js"></script>
+		<meta name="baidu-site-verification" content="uQy30E1vqp" />
+		<meta name="keywords" content="Java Linux Html5 电商 微信 智能旅游 ">
+		<meta name="description" content="IT LIEUTENANT - 互联网中尉 - 互联网时代的「电商架构者」 何航杰的个人网站">
+	</head>
+<body>
+	<div style="width:560px">
+		<div id="test_div"></div>
+	</div>
+</body>
+<script type="text/javascript">
+	var rows = $('#test_div').imagebox(
+			{
+				'requestUrl':'/oss',
+				'menuArray' : [
+				               {"key":"Delete","bindFunction":"imageDel"}
+				      ]
+			}
+	);
+	
+	function imageDel(id){
+		var b=confirm("确定要删除？")
+		if(b){
+			$.ajax({
+				type: 'delete',
+				url : "/oss?key="+rows[id-1].key,
+				context : document.body,
+				success : function(data, type) {
+					alert("你删掉了第"+id+"张图片");
+					rows = $('#test_div').imagebox(
+							{
+								'requestUrl':'/oss',
+								'menuArray' : [
+								               {"key":"Choose","bindFunction":"imageGet"},
+								               {"key":"Delete","bindFunction":"imageDel"}
+								      ]
+							}
+					);
+				}
+			});
+		}
+		
+	}
+	
+</script>
+</html>

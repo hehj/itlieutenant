@@ -49,8 +49,21 @@
 						<a href="#three" class="more scrolly">Read More</a>
 					</section>
 
+
+					<section class="wrapper style5">
+							<div class="inner">
+								<#list list as which>
+								<h4>${which.postTitle?replace(key,'<span class="bg-primary">'+key+'</span>')}</h4>
+								<p><a href="/article/${which.id}">${which.postExcerpt}</a></p>
+								<ul class="actions small">
+									<li><#list which.postKeywords?split(' ') as x><a href="/list?q=${x}"> ${x?replace(key,'<span class="bg-primary">'+key+'</span>')}/&nbsp;</a> </#list></li>
+								</ul>
+								<hr />
+								</#list>
+							</div>
+						</section>
 				<!-- Three -->
-					<section id="three" class="wrapper style3 special">
+					<!-- <section id="three" class="wrapper style3 special">
 						<div class="inner">
 							<header class="major">
 								<h2>API Documentation</h2>
@@ -98,7 +111,7 @@
 								</li>
 							</ul>
 						</div>
-					</section>
+					</section> -->
 
 				<!-- CTA -->
 					<section id="cta" class="wrapper style4">
